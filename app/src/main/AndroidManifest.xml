@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BaybayinQuizApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activities.a_popup"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.ou_popup"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Strokes"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Chart"
+            android:exported="false" />
+        <activity
+            android:name=".LeaderboardAdapter"
+            android:exported="false" />
+        <activity android:name=".LeaderboardActivity" />
+        <activity
+            android:name=".Activities.LessonFour"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LessonThree"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LessonTwo"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LessonOne"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.HistoryCon"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.MainDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".BattleResult"
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".QuizResult"
+            android:exported="false" />
+        <activity
+            android:name=".StartActivity"
+            android:exported="false" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

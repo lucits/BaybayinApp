@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978281140559",
+    "project_id": "baybayinapp-91dbf",
+    "storage_bucket": "baybayinapp-91dbf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978281140559:android:ddc10aa99436a56284353a",
+        "android_client_info": {
+          "package_name": "com.capstonearc.baybayinquizapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn8zCcS16zLK39ExUdSj2xk7BM3yuf6kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">BaybayinQuizApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!-- History Page -->
+    <string name="history_1">
+        Ang Baybayín ay isang makalumang paraan ng pagsulat sa Pilipinas na nanggaling daw sa
+        eskriptong Brahmi na mula pa sa India.
+    </string>
+    <string name="history_2">
+        Maraming patunay ng paggamit ng Baybayin ng mga sinaunang Pilipino, tulad ng mga inskripsyon sa Laguna at ang Laguna Copperplate Inscription,
+        na nagpapatunay na mayroon nang sistema ng pagsusulat ang mga Pilipino bago pa dumating ang mga Espanyol.
+        Pangunahing sinusulatan o inuukitan ng mga katutubo noon ang kawayan ngunit kakaunti ang ebidensiya dito sapagkat nabubulok ang kawayan.
+    </string>
+    <string name="history_3">
+        Marami sa mga ebidensiya sa pagsulat ng Pilipino ay galing sa mga Espanyol sapagkat sila
+        mismo ang sumuporta sa paggamit ng Baybayín ng mga Pilipino, halimbawa na lamang nito ay ang
+        ""Doctrina Christiana"" na unang nilathalang libro sa Pilipinas na gumamit ng Baybayín.
+    </string>
+    <string name="history_4">
+        Sa panahon ng mahabang pagiging kolonya ng Espanya sa Pilipinas, ang paggamit ng Baybayin ay tuluyan nang nawala at pinalitan ng alpabetong Latin.
+        Ipinilit ng mga kolonyalista ang pagtanggal ng Baybayin upang magkaroon sila ng ganap na kontrol sa bansa. Ito ay nagresulta sa pagkawala ng isang
+        mahalagang bahagi ng kasaysayan ng Pilipinas. Hanggang sa kasalukuyan, bihira na ang nakakaalam sa Baybayin at sa kanyang mahalagang ambag sa kasaysayan ng bansa.
+    </string>
+
+
+    <!-- Lesson One -->
+    <string name="lesson_one_1">
+        Bago dumating ang mga Kastila, Tatlo lang ang tunog patinig sa wikang Tagalog. Makikita na ang tunog ng O at U, at ang E at I ay tinuturing na isa.
+        Makikita rin na isang titik lamang ang kumakatawan sa tunog ng O at U at ng E at I. Bakit kaya? Suriin natin ang ilang salita na ito sa Tagalog.
+    </string>
+    <string name="lesson_one_2">
+        Kahit pagpalitin ang tunog ng O at U at E at I sa mga salita, hindi naman nagbabago ang mga kahulugan. Ganito ang sinaunang wikang Tagalog.
+    </string>
+    <string name="lesson_one_3">
+        Tulad ng tunog ng O/U at E/I, ang Da at Ra ay, maaring maging isa. Halimbawa, sa mga salitang Tagalog na "daw" at "raw", "dito" at "rito" at "madami"
+        at "marami", kahit pagpalitin ang tunog Da at Ra sa mga salitang ito, hindi nagbabago ang kahulugan ng mga salita. Kaya sa sinaunang Tagalog, ang sulat ng Da at Ra ay iisa.
+    </string>
+
+    <!-- Lesson two -->
+    <string name="lesson_two_1">
+        Kung napansin niyo ang mga katinig, bawat tunog ay may katambal na a. Siyempre, hindi laging a ang katambal na tunog katinig ng mga pantig (syllable) ng mga salita.
+    </string>
+    <string name="lesson_two_2">
+        Para maiba ang nakapaloob na tunog patinig (vowel/sound) ng mga pantig katinig (consonant syllable), nilalagyan ito ng "kudlit". Ang kudlit ay isang marka,
+        tulad ng maiksing guhit, na inilalagay sa mga baybaying katinig. Kung ilalagay sa taas at nakalapat sa gitna  ng titik, ang nalapaloob na patinig ay nagiging e/i.
+        Kung ilalagay naman sa ibaba at nakalapat parin sa gitna ng titik, ang nakapaloob na patinig ay nagiging o/u.
+    </string>
+    <string name="lesson_two_3">
+        Mapapansin ang paggamit ng kudlit sa mga halimbawang sumusunod:
+    </string>
+    <string name="lesson_two_4">
+        Ang "pamudpod" ay nilalagay sa mga titik katinig lamag para maalis ang nakapaloob na tunog patinig at maiwan ang tunog katinig. Mukha itong malaking kuwit na inilalagay sa gawing kanan sa ibaba ng titik.
+    </string>
+    <string name="lesson_two_5">
+        Makikita ang paggamit ng pamudpod sa mga halimbawang sumusunod:
+    </string>
+    <string name="lesson_two_6">
+        Isa pang paraan ng pag-alis ng tunog patinig ay ang paggamit ng "krus kudlit" sa halip na pamudpod.
+    </string>
+    <string name="lesson_two_7">
+        Bago ilathala ang isa pang bersiyon ng Doctrina Christiana, iminungkahi ni Padre Francisco Lopez noong 1620 ang paggamit ng krus kudlit sa bahagi na nakasulat sa
+        baybayin dahil nahihirapan silang isulat ang panalangin sa katutubong wika at sulat. Kung ang krus kudlit ang gagamitin, ilagay ito sa gitnang ibaba ng mga titik.
+    </string>
+
+    <!-- Lesson three -->
+    <string name="lesson_three_1">
+        Kung paano bigkasin ang mga salita, ayon sa tunog ng wikang Tagalog, ganoon din ang pagkakasulat o baybay ng mga salita. Huwag gamitin ang pagkakasulat sa bagong
+        alpabeto sa pagnaynay ng mga salita sa baybayin
+    </string>
+    <string name="lesson_three_2">
+        Ano ang gagawin para maari pa ring gamitin ang baybayin lalo na kung marami nang salitang mula sa labas ng bansa at naging bahagi na ng wika natin?
+        Isipin na lang kung paano binibigkas ng mga pangkaraniwang Tagalog ang mga tunog na wala sa baybayin.
+    </string>
+    <string name="lesson_three_3">
+        Halimbawa, kung ang pangalan mo ay "Florence", paano kaya ito binibigkas ng isang pangkaraniwang Tagalog? Diba ito ay nagiging "Plorens"?
+    </string>
+    <string name="lesson_three_4">
+        Paano kung ang pangalan naman ay "Jonas"? Kung bibikasin ito ng pangkaraniwang Tagalog ay "Dyonas".
+    </string>
+    <string name="lesson_three_5">
+        Nakatala sa ibaba ang mungkahing kapalit sa sulat sa mga tunog na wala sa baybayin.
+    </string>
+
+    <!-- Lesson four -->
+    <string name="lesson_four_1">
+        Sa sinaunang paraan ng pagsulat, dalawa lang ang bantas:
+    </string>
+    <string name="lesson_four_2">
+        1. Danda ( / ) - Ginagamit ito na tulad ng kuwit or comma (,). Hinahati nito ang isang mahabang pangungusap para mas madaling mabasa.
+        Ginagamit ang danda bilang marka ng paghinto ng saglit bagoituloy ang pagbabasa. Halimbawa:
+    </string>
+    <string name="lesson_four_3">
+        2. Kapid Danda ( // ) - Ginagamit ito bilang marka o bakas na tapos na ang pangungusap. Halimbawa:
+    </string>
+
+
+</resources>
