@@ -224,7 +224,7 @@
         android:layout_marginBottom="30dp"
         android:textColor="@color/text_100"
         android:textAllCaps="false"
-        android:background="@drawable/round_back_secondary_100"
+        android:background="@drawable/round_back_next"
         android:text="Next Question"/>
 
 </RelativeLayout>
