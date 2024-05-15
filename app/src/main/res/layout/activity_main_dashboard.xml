@@ -256,7 +256,6 @@
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
                     android:text="Mga Kwento"
-                    android:fontFamily="@font/bagwisbaybayin"
                     android:textColor="@color/text_300"
                     android:textSize="20sp"
                     android:textStyle="bold" />
