@@ -80,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
-                    android:text="Explore"
+                    android:text="Tuklasin"
+                    android:fontFamily="@font/bagwisbaybayin"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_300"/>
@@ -288,8 +289,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:src="@drawable/storybgblur"
-                        android:scaleType="centerCrop"/>
+                        android:src="@drawable/bg"
+                        android:scaleType="fitXY"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -324,8 +325,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:src="@drawable/storybgblur"
-                        android:scaleType="centerCrop" />
+                        android:src="@drawable/bg"
+                        android:scaleType="fitXY" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -363,8 +364,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:src="@drawable/storybgblur"
-                        android:scaleType="centerCrop"/>
+                        android:src="@drawable/bg"
+                        android:scaleType="fitXY"/>
 
                     <TextView
                         android:layout_width="wrap_content"
