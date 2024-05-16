@@ -113,10 +113,10 @@ public class MainDashboard extends AppCompatActivity {
 
     private void initRecyclerView() {
         ArrayList<LessonsDomain> items = new ArrayList<>();
-        items.add(new LessonsDomain(1, "Unang Gabay", "Ang Mga Titik Ng Bayan", "sampleimageblur"));
-        items.add(new LessonsDomain(2, "Ikalawang Gabay", "Pagkukudlit", "sampleimage"));
-        items.add(new LessonsDomain(3, "Ikatlong Gabay", "Pagbaybay", "sampleimage"));
-        items.add(new LessonsDomain(4, "Ikaapat na Gabay", "Pagbabantas", "sampleimage"));
+        items.add(new LessonsDomain(1, "Unang Gabay", "Ang Mga Titik Ng Bayan", "una"));
+        items.add(new LessonsDomain(2, "Ikalawang Gabay", "Pagkukudlit", "ikalawa"));
+        items.add(new LessonsDomain(3, "Ikatlong Gabay", "Pagbaybay", "ikatlo"));
+        items.add(new LessonsDomain(4, "Ikaapat na Gabay", "Pagbabantas", "ikaapat"));
 
         recyclerViewLessons = findViewById(R.id.view1);
         recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

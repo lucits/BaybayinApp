@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="205dp"
-    android:layout_height="220dp"
+    android:layout_height="180dp"
     android:layout_margin="8dp"
     android:elevation="3dp"
+    app:cardElevation="3dp"
     app:cardCornerRadius="10dp">
 
 
@@ -18,9 +19,10 @@
 
         <ImageView
             android:id="@+id/picture"
-            android:layout_width="205dp"
-            android:layout_height="160dp"
-            app:srcCompat="@drawable/sampleimage" />
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            app:srcCompat="@drawable/una"
+            android:scaleType="fitXY"/>
 
         <TextView
             android:id="@+id/titleTxt"
