@@ -16,7 +16,7 @@
         android:textColor="@color/text_300"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:text="Quiz Result"/>
+        android:text="Resulta"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Congratulations"
+            android:text="MABUHAY"
             android:letterSpacing=".1"
             android:textStyle="bold"
             android:textColor="@color/text_300"
@@ -47,8 +47,9 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:letterSpacing=".1"
-            android:text="You've completed the quiz successfully"
+            android:text="Natapos mo ang pagsusulit"
             android:textSize="16sp"
+            android:fontFamily="@font/bagwisbaybayin"
             android:textColor="@color/text_100"/>
 
         <TextView
@@ -57,7 +58,8 @@
             android:layout_height="wrap_content"
             android:letterSpacing=".2"
             android:textColor="@color/text_100"
-            android:text="Your Score"/>
+            android:textSize="18sp"
+            android:text="PUNTOS"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:letterSpacing=".2"
                     android:textColor="@color/text_100"
-                    android:text="CORRECT"/>
+                    android:text="TAMA"/>
 
                 <TextView
                     android:id="@+id/correctTV"
@@ -118,7 +120,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="0"
-                    android:textColor="@color/color3"/>
+                    android:textColor="@color/accent_200"/>
 
             </LinearLayout>
             <LinearLayout
@@ -133,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:letterSpacing=".2"
                     android:textColor="@color/text_100"
-                    android:text="INCORRECT"/>
+                    android:text="MALI"/>
 
                 <TextView
                     android:id="@+id/inCorrectTV"
@@ -143,7 +145,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="0"
-                    android:textColor="@android:color/holo_red_light"/>
+                    android:textColor="@color/accent_200"/>
 
             </LinearLayout>
         </LinearLayout>
