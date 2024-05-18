@@ -1,5 +1,8 @@
 package com.capstonearc.baybayinquizapp;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private int currentQuestionPosition = 0;
     private int selectedOption = 0;
+    private Dialog showQuitDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,11 +208,45 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    @Override
+    public void onBackPressed() {
+        // Cancel the countdown timer
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+
+        // Show the quit dialog
+        showQuitDialog();
+
+    }
+
+    private void showQuitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ᜁᜑᜒᜈ᜔ᜆᜓ?");//quit quiz?
+        builder.setMessage("Sigurado ka bang gusto mong ihinto ang pagsusulit?");
+        builder.setPositiveButton("Oo", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Finish the quiz
+                finishQuiz();
+            }
+        });
+        builder.setNegativeButton("Hindi", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 
