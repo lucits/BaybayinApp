@@ -48,8 +48,8 @@
             android:layout_marginEnd="50dp"
             android:letterSpacing=".1"
             android:text="Natapos mo ang pagsusulit"
-            android:fontFamily="@font/bagwisbaybayin"
-            android:textSize="16sp"
+            android:fontFamily="@font/matatas_baybayin"
+            android:textSize="18sp"
             android:textColor="@color/text_100"/>
 
         <TextView

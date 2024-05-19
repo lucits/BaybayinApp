@@ -83,7 +83,7 @@
         android:textSize="30sp"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
-        android:fontFamily="@font/baybayin_font"/>
+        android:fontFamily="@font/matatas_baybayin"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +18,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.capstonearc.baybayinquizapp.Dashboard;
 import com.capstonearc.baybayinquizapp.Login;
 import com.capstonearc.baybayinquizapp.R;
-import com.capstonearc.baybayinquizapp.StartActivity;
 import com.capstonearc.baybayinquizapp.Users;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

@@ -46,10 +46,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ating Alamin"
-                        android:fontFamily="@font/baybayinnamin"
+                        android:text="Ating Tuklasin"
+                        android:fontFamily="@font/matatas_baybayin"
+                        android:textSize="50sp"
                         android:textStyle="bold"
-                        android:textSize="54sp"
                         android:textColor="@color/accent_200"
                         android:textAlignment="center"/>
 
@@ -81,8 +81,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
                     android:text="Tuklasin"
-                    android:fontFamily="@font/bagwisbaybayin"
-                    android:textSize="20sp"
+                    android:fontFamily="@font/matatas_baybayin"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_300"/>
             </LinearLayout>
@@ -232,8 +232,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
                     android:text="Mga Gabay"
-                    android:fontFamily="@font/bagwisbaybayin"
-                    android:textSize="20sp"
+                    android:fontFamily="@font/matatas_baybayin"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_300"/>
 
@@ -261,9 +261,9 @@
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
                     android:text="Matutong Bumasa"
-                    android:fontFamily="@font/bagwisbaybayin"
+                    android:fontFamily="@font/matatas_baybayin"
                     android:textColor="@color/text_300"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
 

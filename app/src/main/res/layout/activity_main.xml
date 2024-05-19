@@ -93,7 +93,7 @@
                 android:textSize="50sp"
                 android:lines="2"
                 android:textStyle="bold"
-                android:fontFamily="@font/baybayinnamin"
+                android:fontFamily="@font/matatas_baybayin"
                 android:gravity="center_horizontal"/>
 
             <!--Option 1 Layout-->
