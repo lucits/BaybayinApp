@@ -102,21 +102,23 @@
         android:gravity="center"
         android:textSize="20sp"
         android:text="Easy"
-        android:textColor="@color/white"
+        android:textColor="@color/accent_200"
         android:background="@drawable/round_back_secondary_100"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/mediumBtn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="Medium"
-        android:textColor="@color/white"
-        android:background="@drawable/round_back_secondary_100"/>
-    <androidx.appcompat.widget.AppCompatButton
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mediumBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/round_back_secondary_100"
+            android:gravity="center"
+            android:text="Medium"
+            android:textColor="@color/accent_200"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hardBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -126,7 +128,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:text="Hard"
-        android:textColor="@color/white"
+        android:textColor="@color/accent_200"
         android:background="@drawable/round_back_secondary_100"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/battleBtn"
@@ -138,7 +140,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:text="Battle"
-        android:textColor="@color/white"
+        android:textColor="@color/accent_200"
         android:background="@drawable/round_back_secondary_100"/>
 
 

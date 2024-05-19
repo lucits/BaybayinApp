@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/accent_100"
@@ -13,32 +14,64 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/bagwisbaybayin"
                 android:gravity="start|center"
-                android:text="Tamang Sulat"
+                android:layout_marginEnd="15dp"
+                android:text="GAYAHIN MO"
+                android:textColor="@color/accent_200"
                 android:textSize="24sp" />
 
             <ImageView
-                android:layout_marginStart="130dp"
+                android:id="@+id/clear_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="80dp"
+                android:rotationY="180"
+                app:srcCompat="@drawable/undoicon"
+                android:tint="@color/accent_200"/>
+
+            <ImageView
+                android:layout_marginStart="10dp"
                 android:id="@+id/closeDialog"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/xicon" />
+                android:src="@drawable/xicon"
+                app:tint="@color/accent_200" />
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="250dp"/>
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/accent_100"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.capstonearc.baybayinquizapp.Activities.DrawingView
+                android:id="@+id/drawing_view"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@color/white"/>
+    </LinearLayout>
 
 
     </LinearLayout>

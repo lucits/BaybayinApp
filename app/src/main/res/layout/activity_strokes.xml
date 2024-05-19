@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Matutong Sumulat"
-                    android:textColor="@color/text_300"
+                    android:textColor="@color/accent_200"
                     android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView11"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/matatas_baybayin"
                     android:text="Matutong Sumulat"
-                    android:textColor="@color/text_100"
+                    android:textColor="@color/accent_200"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView11"
                     app:layout_constraintStart_toStartOf="@+id/imageView11"
@@ -152,7 +152,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/a" />
+                                android:src="@drawable/a"/>
 
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView

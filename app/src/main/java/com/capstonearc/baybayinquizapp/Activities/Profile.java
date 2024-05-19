@@ -80,7 +80,7 @@ public class Profile extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(Profile.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Profile.this, "Failed to load profile", Toast.LENGTH_SHORT); //add .show
                 }
             });
         } else {
@@ -141,7 +141,7 @@ public class Profile extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Profile Picture"), 1);
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -152,7 +152,7 @@ public class Profile extends AppCompatActivity {
         }
     }
 
-    private void uploadProfilePicture(Uri imageUri) {
+        private void uploadProfilePicture(Uri imageUri) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         StorageReference profilePicRef = storageRef.child("profile_pictures/" + firebaseAuth.getCurrentUser().getUid());
@@ -168,7 +168,7 @@ public class Profile extends AppCompatActivity {
                 });
             }
         });
-    }
+    }*/
 
     private void logoutUser(View view) {
         FirebaseAuth.getInstance().signOut();
