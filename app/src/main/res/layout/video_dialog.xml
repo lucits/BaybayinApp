@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/accent_100"
     android:padding="2dp">
 
@@ -12,39 +12,48 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="start|center"
-                android:layout_marginEnd="15dp"
-                android:text="GAYAHIN MO"
-                android:textColor="@color/accent_200"
-                android:textSize="24sp" />
 
-            <ImageView
-                android:id="@+id/clear_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="80dp"
-                android:rotationY="180"
-                app:srcCompat="@drawable/undoicon"
-                android:tint="@color/accent_200"/>
-
-            <ImageView
+            <LinearLayout
+                android:layout_width="237dp"
                 android:layout_marginStart="10dp"
-                android:id="@+id/closeDialog"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/xicon"
-                app:tint="@color/accent_200" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center"
+                    android:text="GAYAHIN MO"
+                    android:textColor="@color/accent_200"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+
+                <ImageView
+                    android:id="@+id/clear_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:rotationY="180"
+                    app:srcCompat="@drawable/undoicon"
+                    app:tint="@color/accent_200" />
+
+                <ImageView
+                    android:id="@+id/closeDialog"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/xicon"
+                    app:tint="@color/accent_200" />
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

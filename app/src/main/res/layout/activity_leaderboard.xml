@@ -67,8 +67,8 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:src="@drawable/leaderboard"/>
+                android:layout_height="114dp"
+                android:src="@drawable/leaderboard" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,11 +87,16 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_margin="30dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
             app:cardElevation="20dp"
             app:cardCornerRadius="10dp"
             android:backgroundTint="@color/bg_200">
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -128,9 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view"
@@ -143,12 +146,10 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0"
                         android:layout_margin="24dp"/>
-                    </ScrollView>
+
                 </LinearLayout>
 
             </LinearLayout>
-
-
 
 
         </androidx.cardview.widget.CardView>
