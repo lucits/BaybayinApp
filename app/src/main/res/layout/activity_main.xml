@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical">
 
@@ -94,8 +94,7 @@
             android:lines="2"
             android:padding="10dp"
             android:textColor="@color/white"
-            android:textSize="50sp"
-            android:textStyle="bold" />
+            android:textSize="50sp" />
 
         <!--Option 1 Layout-->
         <RelativeLayout
