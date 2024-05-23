@@ -1,8 +1,11 @@
 package com.capstonearc.baybayinquizapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,27 +33,27 @@ public class StartActivity extends AppCompatActivity {
         easyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz("easy");
+                showInstructions("easy");
             }
         });
 
         mediumBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz("medium");
+                showInstructions("medium");
             }
         });
 
         hardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz("hard");
+                showInstructions("hard");
             }
         });
         battleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQuiz("battles");
+                showInstructions("battle");
             }
         });
 
@@ -72,6 +75,28 @@ public class StartActivity extends AppCompatActivity {
             return insets;
         });
 
+    }
+
+
+    private void showInstructions(final String level) {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.instructions_dialog);
+        dialog.setTitle("Instructions");
+
+        TextView instructionsText = dialog.findViewById(R.id.instructionsText);
+        AppCompatButton startBtn = dialog.findViewById(R.id.startBtn);
+
+        instructionsText.setText("Here are the instructions for the " + level + " level. Please read them carefully before proceeding.");
+
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                startQuiz(level);
+            }
+        });
+
+        dialog.show();
     }
 
     private void startQuiz(String difficultyLevel) {

@@ -149,10 +149,20 @@
                             app:cardCornerRadius="10dp"
                             app:cardElevation="5dp">
 
+
+
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/a"/>
+                            <ImageView
+                                android:id="@+id/s1s"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="end"
+                                android:src="@drawable/speaker"/>
+
+
 
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
@@ -167,6 +177,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ou" />
+                            <ImageView
+                                android:id="@+id/s2s"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="end"
+                                android:src="@drawable/speaker"/>
 
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
@@ -181,6 +197,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ei"/>
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="end"
+                                android:src="@drawable/speaker"/>
 
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
