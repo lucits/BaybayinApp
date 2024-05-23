@@ -2,6 +2,7 @@ package com.capstonearc.baybayinquizapp.Activities;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.capstonearc.baybayinquizapp.R;
 public class Strokes extends AppCompatActivity {
 
     private Dialog myDialog;
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,8 @@ public class Strokes extends AppCompatActivity {
             }
         });
 
-
+        findViewById(R.id.s1s).setOnClickListener(v -> playSound(R.raw.soundsample1));
+        findViewById(R.id.s2s).setOnClickListener(v -> playSound(R.raw.soundsample2));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -62,4 +66,22 @@ public class Strokes extends AppCompatActivity {
         VideoDialogFragment dialogFragment = VideoDialogFragment.newInstance(videoUri);
         dialogFragment.show(getSupportFragmentManager(), "VideoDialogFragment");
     }
+    private void playSound(int soundResId) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = MediaPlayer.create(this, soundResId);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(MediaPlayer::release);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
 }
