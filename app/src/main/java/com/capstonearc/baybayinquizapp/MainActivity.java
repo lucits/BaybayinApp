@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -63,11 +64,26 @@ public class MainActivity extends AppCompatActivity {
     private int currentQuestionPosition = 0;
     private int selectedOption = 0;
     private Dialog showQuitDialog;
+    private MediaPlayer backgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Retrieve the mute state from the intent extras
+        boolean isMusicPlaying = getIntent().getBooleanExtra("is_music_playing", true);
+
+        // Initialize background music
+        backgroundMusic = MediaPlayer.create(this, R.raw.bgmusic);
+        backgroundMusic.setLooping(true); // Loop the music
+
+        // Start or stop playing background music based on the mute state
+        if (isMusicPlaying) {
+            startMusic();
+        } else {
+            stopMusic();
+        }
 
         FirebaseApp.initializeApp(this);
         quizTimer = findViewById(R.id.quizTimer);
@@ -215,6 +231,30 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    // Method to start background music
+    private void startMusic() {
+        if (backgroundMusic != null && !backgroundMusic.isPlaying()) {
+            backgroundMusic.start();
+        }
+    }
+
+    // Method to stop background music
+    private void stopMusic() {
+        if (backgroundMusic != null && backgroundMusic.isPlaying()) {
+            backgroundMusic.pause();
+        }
+    }
+
+    // Override onDestroy to release MediaPlayer resources
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (backgroundMusic != null) {
+            backgroundMusic.stop();
+            backgroundMusic.release();
+            backgroundMusic = null;
+        }
     }
     @Override
     public void onBackPressed() {
