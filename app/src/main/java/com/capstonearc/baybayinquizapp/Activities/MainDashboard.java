@@ -73,7 +73,6 @@ public class MainDashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainDashboard.this, Profile.class);
                 startActivity(intent);
-                finish();
             }
         });
 
