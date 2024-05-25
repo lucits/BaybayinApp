@@ -15,12 +15,6 @@
         android:theme="@style/Theme.BaybayinQuizApp"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.a_popup"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.ou_popup"
-            android:exported="false" />
-        <activity
             android:name=".Activities.Strokes"
             android:exported="false" />
         <activity
@@ -53,9 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".BattleResult"
-            android:exported="false" />
-        <activity
-            android:name=".Dashboard"
             android:exported="false" />
         <activity
             android:name=".Login"
