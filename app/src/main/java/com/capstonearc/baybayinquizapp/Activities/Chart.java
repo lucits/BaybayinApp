@@ -27,7 +27,7 @@ public class Chart extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Chart.this, MainDashboard.class);
                 startActivity(intent);
-                finish();
+                Chart.this.finish();
             }
         });
 

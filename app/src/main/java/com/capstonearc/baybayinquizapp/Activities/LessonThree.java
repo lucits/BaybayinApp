@@ -27,6 +27,7 @@ public class LessonThree extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LessonThree.this, MainDashboard.class);
                 startActivity(intent);
+                LessonThree.this.finish();
             }
         });
 

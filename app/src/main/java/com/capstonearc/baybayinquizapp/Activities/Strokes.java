@@ -36,8 +36,11 @@ public class Strokes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Strokes.this, MainDashboard.class);
                 startActivity(intent);
+                Strokes.this.finish();
             }
         });
+
+        //popup
         findViewById(R.id.s1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,8 +55,11 @@ public class Strokes extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.s1s).setOnClickListener(v -> playSound(R.raw.soundsample1));
-        findViewById(R.id.s2s).setOnClickListener(v -> playSound(R.raw.soundsample2));
+
+        //sound
+        findViewById(R.id.s1s).setOnClickListener(v -> playSound(R.raw.a_sound));
+        findViewById(R.id.s2s).setOnClickListener(v -> playSound(R.raw.ou_sound));
+        findViewById(R.id.s3s).setOnClickListener(v -> playSound(R.raw.ei_sound));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

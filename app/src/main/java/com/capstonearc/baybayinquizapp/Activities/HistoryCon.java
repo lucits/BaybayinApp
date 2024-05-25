@@ -26,6 +26,7 @@ public class HistoryCon extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HistoryCon.this, MainDashboard.class);
                 startActivity(intent);
+                HistoryCon.this.finish();
             }
         });
 

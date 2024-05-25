@@ -70,7 +70,7 @@
         android:gravity="center"
         android:paddingBottom="50dp">
     <ImageView
-        android:layout_width="80dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/quiz"/>
@@ -81,7 +81,7 @@
         android:text="Alamin at Isalin"
         android:textColor="@color/text_300"
         android:textSize="30sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:fontFamily="@font/matatas_baybayin"/>
 
