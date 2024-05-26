@@ -3,6 +3,7 @@ package com.capstonearc.baybayinquizapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +45,8 @@ public class Register extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         signInBtn = findViewById(R.id.signInBtn);
         signUpBtn = findViewById(R.id.signUpBtn);
+
+        editTextUsername.setFilters(new InputFilter[] { new InputFilter.LengthFilter(10) });
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
