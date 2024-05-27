@@ -260,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_weight="1"
-                    android:text="Matutong Bumasa"
+                    android:text="Pagmulat"
                     android:fontFamily="@font/matatas_baybayin"
                     android:textColor="@color/text_300"
                     android:textSize="24sp"
@@ -270,7 +270,7 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardOne"
+                android:id="@+id/slotOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -299,7 +299,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="12dp"
                         android:layout_marginBottom="12dp"
-                        android:text="Tile 1"
+                        android:text="Monreal Stone"
                         android:textSize="20sp" />
 
 

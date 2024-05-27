@@ -48,12 +48,7 @@ public class Strokes extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.s2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.samplevideo));
-            }
-        });
+
 
 
         //sound

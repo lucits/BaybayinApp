@@ -111,6 +111,21 @@
         2. Kapid Danda ( // ) - Ginagamit ito bilang marka o bakas na tapos na ang pangungusap. Halimbawa:
     </string>
 
+    <!-- slots -->
+    <string name="slotone_1">
+        Sa papel nina Dr. Maricor Soriano at Francis James Corpuz noong 2011 na pinamagatang "3D Imaging of the Ticao Stone",
+        ginamit nila ang 3D imaging para suriin ang Monreal Stone 1 (Side B). Isa sa mga tiningnan nila ay ang baybayin script
+        ng pantig na "NGA" na may kudlit.
+    </string>
+    <string name="slotone_2">
+        Ang kudlit na ito ay isang markang hugis krus na tinatawag ding patinig killer, na ipinakilala ni Francisco Lopez, isang
+        Augustinianong pari, noong 1621. Ang markang ito ay hindi karaniwan sa mga sinaunang baybayin bago dumating si Lopez, kaya
+        naging kontrobersyal ito.
+    </string>
+    <string name="slotone_3">
+        Narito ang mga ilan sa mga imahe ng baybayin script para sa pantig na "NGA" mula sa Monreal Stone 1 (Side B), kasama ang kudlit
+    </string>
+
 
     <string name="mute_unmute">Mute/Unmute</string>
 </resources>
