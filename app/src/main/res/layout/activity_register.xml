@@ -4,32 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/accent_100"
-    android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".Register">
 
-
-
-<androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="602dp"
+        android:layout_height="665dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:elevation="20dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@color/accent_100"
         app:cardCornerRadius="30dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/matatas_baybayin"
-        android:text="Lakbayin"
-        android:textAlignment="center"
-        android:textSize="70sp"
-        android:textColor="@color/accent_200"
-        android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/matatas_baybayin"
+            android:text="Lakbayin"
+            android:textAlignment="center"
+            android:textSize="70sp"
+            android:textColor="@color/accent_200"
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardlogin"
@@ -59,7 +58,6 @@
                     android:textSize="36sp"
                     android:textStyle="bold" />
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     app:boxStrokeColor="@color/text_300"
                     app:hintTextColor="@color/text_300"
@@ -81,7 +79,6 @@
                         android:textColorLink="#FFC107" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     app:boxStrokeColor="@color/text_300"
@@ -112,7 +109,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="30dp"
                     app:passwordToggleEnabled="true">
 
@@ -121,6 +117,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="#FFC107"
+                        android:textColorHint="#FFC107"
+                        android:textColorLink="#FFC107" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Confirmation Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    app:boxStrokeColor="@color/text_300"
+                    app:hintTextColor="@color/text_300"
+                    app:cursorColor="@color/text_300"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Confirm Password"
                         android:inputType="textPassword"
                         android:textColor="@color/black"
                         android:textColorHighlight="#FFC107"
@@ -141,7 +161,6 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:textColor="@color/white"/>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -167,21 +186,19 @@
                         android:textColor="@color/text_300"
                         android:textSize="15sp" />
 
-
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:layout_width="264dp"
-        android:layout_height="228dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginBottom="97dp"
-        android:elevation="30dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/loginback" />
-
+        <ImageView
+            android:layout_width="264dp"
+            android:layout_height="228dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginBottom="97dp"
+            android:elevation="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loginback" />
 
     </androidx.cardview.widget.CardView>
 

@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
-    private TextInputEditText editTextUsername, editTextEmail, editTextPassword;
+    private TextInputEditText editTextUsername, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button signUpBtn;
     private TextView signInBtn;
 
@@ -44,10 +44,11 @@ public class Register extends AppCompatActivity {
         editTextUsername = findViewById(R.id.username);
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
+        editTextConfirmPassword = findViewById(R.id.confirm_password);
         signInBtn = findViewById(R.id.signInBtn);
         signUpBtn = findViewById(R.id.signUpBtn);
 
-        editTextUsername.setFilters(new InputFilter[] { new InputFilter.LengthFilter(10) });
+        editTextUsername.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
@@ -63,10 +64,11 @@ public class Register extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username, email, password;
+                String username, email, password, confirmPassword;
                 username = editTextUsername.getText().toString().trim();
                 email = editTextEmail.getText().toString().trim();
                 password = editTextPassword.getText().toString().trim();
+                confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(Register.this, "Enter Username", Toast.LENGTH_SHORT).show();
@@ -82,6 +84,17 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if (TextUtils.isEmpty(confirmPassword)) {
+                    Toast.makeText(Register.this, "Confirm your password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!password.equals(confirmPassword)) {
+                    Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 final ProgressDialog progressDialog = new ProgressDialog(Register.this);
                 progressDialog.setMessage("Registering...");
                 progressDialog.setCancelable(false);
