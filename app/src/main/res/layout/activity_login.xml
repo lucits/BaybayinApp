@@ -34,8 +34,11 @@
                 android:fontFamily="@font/matatas_baybayin"
                 android:text="Lakbayin"
                 android:textAlignment="center"
-                android:textSize="70sp"
                 android:textColor="@color/accent_200"
+                android:textColorHighlight="#FFC107"
+                android:textColorHint="#FFC107"
+                android:textColorLink="#FFC107"
+                android:textSize="70sp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
@@ -62,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Login"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/accent_200"
                         android:textSize="36sp"
                         android:textStyle="bold" />
 
@@ -81,7 +84,10 @@
                             android:layout_height="wrap_content"
                             android:hint="Email"
                             android:inputType="textEmailAddress"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textColorHighlight="#FFC107"
+                            android:textColorHint="#FFC107"
+                            android:textColorLink="#FFC107" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,6 +109,8 @@
                             android:hint="Password"
                             android:inputType="textPassword"
                             android:textColor="@color/black"
+                            android:textColorHighlight="#FFC107"
+                            android:textColorHint="#FFC107"
                             android:textColorLink="#FFC107" />
                     </com.google.android.material.textfield.TextInputLayout>
 

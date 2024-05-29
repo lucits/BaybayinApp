@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -92,16 +93,29 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
-                                    String userId = firebaseAuth.getCurrentUser().getUid();
-                                    Users user = new Users(userId, username, email, 0); // Add score parameter with default value 0
-                                    databaseReference.child(userId).setValue(user);
-
-                                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Register.this, Login.class);
-                                    startActivity(intent);
-                                    finish();
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                                    if (user != null) {
+                                        user.sendEmailVerification()
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Toast.makeText(Register.this, "Registration Successful. Please check your email for verification.", Toast.LENGTH_LONG).show();
+                                                            String userId = user.getUid();
+                                                            Users newUser = new Users(userId, username, email, 0); // Add score parameter with default value 0
+                                                            databaseReference.child(userId).setValue(newUser);
+                                                            firebaseAuth.signOut();
+                                                            Intent intent = new Intent(Register.this, Login.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        } else {
+                                                            Toast.makeText(Register.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });
+                                    }
                                 } else {
-                                    Toast.makeText(Register.this, "AuthenticationFailed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Register.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
