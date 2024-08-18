@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -26,10 +28,10 @@ public class QuizResult extends AppCompatActivity {
 
         final TextView scoreTV = findViewById(R.id.scoreTV);
         final TextView totalScoreTV = findViewById(R.id.totalScoreTV);
-        final TextView correctTV = findViewById(R.id.correctTV);
-        final TextView incorrectTV = findViewById(R.id.inCorrectTV);
+
         final AppCompatButton backActivityBtn = findViewById(R.id.backActivityBtn);
         final AppCompatButton reTakeBtn = findViewById(R.id.retakeQuizBtn);
+
 
         // Getting question list from MainActivity
         if (getIntent().hasExtra("questions")) {
@@ -39,8 +41,7 @@ public class QuizResult extends AppCompatActivity {
                 totalScoreTV.setText("/" + questionsLists.size());
                 int correctAnswers = getCorrectAnswers();
                 scoreTV.setText(String.valueOf(correctAnswers));
-                correctTV.setText(String.valueOf(correctAnswers));
-                incorrectTV.setText(String.valueOf(questionsLists.size() - correctAnswers));
+
             } else {
                 // Handle the case where the list of questions is empty
                 Toast.makeText(this, "No questions available", Toast.LENGTH_SHORT).show();
@@ -70,8 +71,14 @@ public class QuizResult extends AppCompatActivity {
             // Finish the current activity (QuizResult)
             finish();
         });
-    }
 
+        RecyclerView recyclerViewQuizResults = findViewById(R.id.recyclerViewQuizResults);
+        recyclerViewQuizResults.setLayoutManager(new LinearLayoutManager(this));
+
+        List<QuestionsList> questionsLists = (List<QuestionsList>) getIntent().getSerializableExtra("questions");
+        QuizResultsAdapter adapter = new QuizResultsAdapter(questionsLists);
+        recyclerViewQuizResults.setAdapter(adapter);
+    }
     private int getCorrectAnswers() {
         int correctAnswerCount = 0;
 

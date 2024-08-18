@@ -18,7 +18,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-
+    <string-array name="model">
+        <item>Baybayin</item>
+        <item>Money2 </item>
+        <item>Money3</item>
+        <item>Money4-int8</item>
+    </string-array>
     <!-- History Page -->
     <string name="history_1">
         Ang Baybayín ay isang makalumang paraan ng pagsulat sa Pilipinas na nanggaling daw sa

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/accent_100"
-    tools:context=".QuizResult">
+    android:padding="16dp">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -21,9 +19,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="50dp"
         android:gravity="center">
-        
+
         <ImageView
             android:layout_width="180dp"
             android:layout_height="wrap_content"
@@ -89,66 +87,12 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewQuizResults"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginTop="30dp"
-            android:weightSum="2"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-    
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:letterSpacing=".2"
-                    android:textColor="@color/text_100"
-                    android:text="TAMA"/>
-
-                <TextView
-                    android:id="@+id/correctTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="0"
-                    android:textColor="@color/accent_200"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:letterSpacing=".2"
-                    android:textColor="@color/text_100"
-                    android:text="MALI"/>
-
-                <TextView
-                    android:id="@+id/inCorrectTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="0"
-                    android:textColor="@color/accent_200"/>
-
-            </LinearLayout>
-        </LinearLayout>
+            android:background="@drawable/round_back_result"
+            android:layout_height="300dp"
+            android:layout_weight="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,7 +101,7 @@
             android:weightSum="2"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="20dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/backActivityBtn"
@@ -183,4 +127,5 @@
 
 
     </LinearLayout>
+
 </LinearLayout>

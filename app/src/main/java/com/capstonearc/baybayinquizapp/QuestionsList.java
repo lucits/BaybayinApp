@@ -49,4 +49,8 @@ public class QuestionsList implements Serializable {
     public void setUserSelectedAnswer(int userSelectedAnswer) {
         this.userSelectedAnswer = userSelectedAnswer;
     }
+
+    public boolean isOptionCorrect(int option) {
+        return option == answer;
+    }
 }

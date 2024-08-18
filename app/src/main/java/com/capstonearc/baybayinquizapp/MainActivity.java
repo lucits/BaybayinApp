@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
             // Get the correct answer
             int correctAnswer = questionsLists.get(currentQuestionPosition).getAnswer();
 
-            // Check if the selected option is correct
+            /*// Check if the selected option is correct
             if (selectedOption == correctAnswer) {
                 // Highlight correct option
                 switch (correctAnswer) {
@@ -420,6 +420,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // Highlight incorrect option
+
                 switch (selectedOption) {
                     case 1:
                         option1Layout.setBackgroundResource(R.drawable.round_back_wrong_option);
@@ -434,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
                         option4Layout.setBackgroundResource(R.drawable.round_back_wrong_option);
                         break;
                 }
-            }
+            }*/
         } else {
             Toast.makeText(this, "No questions available", Toast.LENGTH_SHORT).show();
         }

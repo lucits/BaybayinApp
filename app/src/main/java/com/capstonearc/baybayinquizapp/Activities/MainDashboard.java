@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.capstonearc.baybayinquizapp.Adapter.LessonsAdapter;
 import com.capstonearc.baybayinquizapp.Domain.LessonsDomain;
 import com.capstonearc.baybayinquizapp.LeaderboardActivity;
+import com.capstonearc.baybayinquizapp.MainActivity2;
 import com.capstonearc.baybayinquizapp.R;
 import com.capstonearc.baybayinquizapp.StartActivity;
 
@@ -41,6 +42,15 @@ public class MainDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainDashboard.this, HistoryCon.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout liveBtn = findViewById(R.id.LiveBtn);
+        liveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainDashboard.this, MainActivity2.class);
                 startActivity(intent);
             }
         });

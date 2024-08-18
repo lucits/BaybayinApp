@@ -8,7 +8,7 @@
     android:background="@color/bg_100"
     tools:context=".Activities.MainDashboard"
     android:fitsSystemWindows="true">
-    
+
 
 
     <ScrollView
@@ -97,7 +97,50 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:id="@+id/LiveBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/bg_200">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/round_back_oval">
+
+                            <ImageView
+                                android:id="@+id/imageV"
+                                android:layout_width="39dp"
+                                android:layout_height="46dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/camera" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Live"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_300"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="2dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="3dp">
 
@@ -140,7 +183,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="3dp">
 
@@ -181,7 +224,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="3dp">
 
@@ -276,6 +319,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginBottom="90dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="4dp"
                 android:layout_marginHorizontal="15dp">
@@ -296,87 +340,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
                         android:text="Monreal Stone"
                         android:textSize="20sp" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardTwo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                android:layout_marginHorizontal="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/bg_200">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:src="@drawable/bg"
-                        android:scaleType="fitXY" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="12dp"
-                        android:text="Tile 1"
-                        android:textSize="20sp"
-                        android:textColor="@color/text_300"/>
-
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardThree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="70dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/bg_200">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:src="@drawable/bg"
-                        android:scaleType="fitXY"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="12dp"
-                        android:text="Tile 1"
-                        android:textSize="20sp"/>
-
 
 
                 </LinearLayout>
@@ -401,111 +369,111 @@
             android:paddingEnd="10dp"
             android:backgroundTint="@color/bg_200">
         </com.google.android.material.bottomappbar.BottomAppBar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/homeBtn"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_weight="0.25"
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                <LinearLayout
-                    android:id="@+id/homeBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                <ImageView
+                    android:id="@+id/homeIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/homebtn" />
 
-                    <ImageView
-                        android:id="@+id/homeIcon"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/homebtn" />
-
-                    <TextView
-                        android:id="@+id/hometxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Home"
-                        android:textAlignment="center"
-                        android:textColor="@color/text_300"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/rankBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/rankIcon"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/podiumbtn" />
-
-                    <TextView
-                        android:id="@+id/ranktxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Ranking"
-                        android:textAlignment="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/gameBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/gameIcon"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/gamesbtn" />
-
-                    <TextView
-                        android:id="@+id/gametxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Game"
-                        android:textAlignment="center"
-                        android:textColor="@color/text_300"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/profileBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/userbtn" />
-
-                    <TextView
-                        android:id="@+id/profiletxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Profile"
-                        android:textAlignment="center"
-                        android:textColor="@color/text_300"/>
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/hometxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Home"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_300"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rankBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/rankIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/podiumbtn" />
+
+                <TextView
+                    android:id="@+id/ranktxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Ranking"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/gameBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/gameIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/gamesbtn" />
+
+                <TextView
+                    android:id="@+id/gametxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Game"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_300"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profileBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/userbtn" />
+
+                <TextView
+                    android:id="@+id/profiletxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_300"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
 
 
