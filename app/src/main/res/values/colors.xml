@@ -32,4 +32,5 @@
     <color name="secondary">#06CBED</color>
     <color name="color3">#11C59C</color>
     <color name="gray">#99FFFFFF</color>
+    <color name="yellow_color">#FFC107</color>
 </resources>

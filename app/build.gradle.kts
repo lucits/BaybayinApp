@@ -87,4 +87,8 @@ dependencies {
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
     implementation("io.reactivex.rxjava3:rxjava:3.0.0")
+
+
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
 }
