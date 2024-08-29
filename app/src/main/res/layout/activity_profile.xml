@@ -50,20 +50,13 @@
                         android:id="@+id/userProfilePic"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
-                        app:civ_border_color="@color/white"
-                        app:civ_border_width="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:srcCompat="@drawable/profile" />
+                        android:background="@drawable/circular_profile_picture"
+                        android:src="@drawable/person"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="40dp"/>
 
-                    <ImageView
-                        android:id="@+id/changeProfilePicBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:srcCompat="@drawable/camera" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
@@ -123,7 +116,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="30dp"
-                android:paddingBottom="30dp">
+                android:paddingBottom="30dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp">
 
                 <!-- Setting Button -->
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -132,7 +127,8 @@
                     android:layout_height="wrap_content"
                     android:padding="16dp"
                     android:layout_marginBottom="1dp"
-                    android:background="@color/accent_100"
+                    android:background="@color/bg_100"
+                    android:elevation="10dp"
                     android:clickable="true"
                     android:focusable="true">
 
@@ -165,13 +161,38 @@
 
                 <!-- Change Password Button -->
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/changeProfileBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/accent_100"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Profile"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Privacy Policy Button -->
+
+
+                <!-- About Button -->
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/changePasswordBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="@color/bg_100"
+                    android:background="@color/accent_100"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -179,40 +200,19 @@
                         android:text="Change Password"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Privacy Policy Button -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/privacyPolicyBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:background="@color/bg_100"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Privacy Policy"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <!-- About Button -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/aboutBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
                     android:layout_marginBottom="1dp"
-                    android:background="@color/accent_100"
+                    android:background="@color/bg_100"
+                    android:elevation="10dp"
                     android:clickable="true"
                     android:focusable="true">
 
@@ -240,7 +240,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:background="@color/accent_100"
+                    android:background="@color/bg_100"
+                    android:elevation="10dp"
                     android:clickable="true"
                     android:focusable="true">
 

@@ -46,7 +46,7 @@ public class MainDashboard extends AppCompatActivity {
             }
         });
 
-        LinearLayout liveBtn = findViewById(R.id.LiveBtn);
+        LinearLayout liveBtn = findViewById(R.id.liveBtn);
         liveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +77,7 @@ public class MainDashboard extends AppCompatActivity {
                 }, 2000); // 2000 milliseconds = 2 seconds
             }
         });
+
 
         LinearLayout profileBtn = findViewById(R.id.profileBtn);
         profileBtn.setOnClickListener(new View.OnClickListener() {

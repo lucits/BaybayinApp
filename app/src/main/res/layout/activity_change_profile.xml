@@ -5,14 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangePasswordActivity"
+    tools:context=".ChangeProfile"
     android:background="@color/bg_100">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Change Password"
+                android:text="Change Profile"
                 android:textColor="@color/accent_200"
                 android:textSize="25sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/backchangepassBtn"
+                android:id="@+id/backchangeprofileBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="32dp"
@@ -64,85 +63,76 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:gravity="top|center">
+
+             <ImageView
+                android:id="@+id/profile_image_view"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:background="@drawable/oval_back"
+                android:src="@drawable/person"
+                android:scaleType="centerCrop"
+                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="40dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="New username"
+                    app:boxStrokeColor="@color/accent_100"
+                    app:hintTextColor="@color/accent_100"
+                    app:cursorColor="@color/accent_100">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColorHighlight="#FFC107"
+                        android:textColorHint="#FFC107"
+                        android:textColorLink="#FFC107" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                app:passwordToggleEnabled="true"
-                android:hint="Old Password"
+                android:hint="Email"
+                android:enabled="false"
                 app:boxStrokeColor="@color/accent_100"
                 app:hintTextColor="@color/accent_100"
                 app:cursorColor="@color/accent_100">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/oldPassword"
+                    android:id="@+id/profile_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColorHighlight="#FFC107"
                     android:textColorHint="#FFC107"
                     android:textColorLink="#FFC107" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:hint="New Password"
-                app:passwordToggleEnabled="true"
-                app:boxStrokeColor="@color/accent_100"
-                app:hintTextColor="@color/accent_100"
-                app:cursorColor="@color/accent_100">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/newPassword"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/profile_update_btn"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:textColorHighlight="#FFC107"
-                    android:textColorHint="#FFC107"
-                    android:textColorLink="#FFC107" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:hint="Confirm New Password"
-                app:passwordToggleEnabled="true"
-                app:boxStrokeColor="@color/accent_100"
-                app:hintTextColor="@color/accent_100"
-                app:cursorColor="@color/accent_100">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/confirmPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:textColorHighlight="#FFC107"
-                    android:textColorHint="#FFC107"
-                    android:textColorLink="#FFC107" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/changePasswordButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Change Password"
-                android:background="@drawable/round_back_changepassbtn"
-                android:layout_marginTop="24dp" />
+                    android:text="Update profile"
+                    android:textAllCaps="false"
+                    android:background="@drawable/round_back_changepassbtn"
+                    android:layout_marginTop="24dp" />
 
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

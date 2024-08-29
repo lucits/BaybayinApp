@@ -13,9 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <androidx.cardview.widget.CardView
@@ -24,9 +23,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:elevation="20dp"
-            app:cardElevation="0dp"
             app:cardBackgroundColor="@color/accent_100"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="30dp"
+            app:cardElevation="0dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,8 +46,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:elevation="20dp"
-                app:cardCornerRadius="30dp"
-                app:cardBackgroundColor="@color/bg_200">
+                app:cardBackgroundColor="@color/bg_200"
+                app:cardCornerRadius="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -70,13 +69,13 @@
                         android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        app:boxStrokeColor="@color/text_300"
-                        app:hintTextColor="@color/text_300"
-                        app:cursorColor="@color/text_300"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp">
+                        android:layout_marginEnd="30dp"
+                        app:boxStrokeColor="@color/text_300"
+                        app:cursorColor="@color/text_300"
+                        app:hintTextColor="@color/text_300">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/email"
@@ -92,14 +91,14 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        app:boxStrokeColor="@color/text_300"
-                        app:hintTextColor="@color/text_300"
-                        app:cursorColor="@color/text_300"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="30dp"
+                        app:boxStrokeColor="@color/text_300"
+                        app:cursorColor="@color/text_300"
+                        app:hintTextColor="@color/text_300"
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -114,12 +113,31 @@
                             android:textColorLink="#FFC107" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:gravity="end|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/forgotPasswordTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="Forgot Password?"
+                            android:textColor="@color/text_300"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/signInBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="30dp"
                         android:background="@drawable/round_back_primary_100_10"
                         android:text="Sign In"
@@ -131,7 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="40dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="40dp"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -171,8 +189,6 @@
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

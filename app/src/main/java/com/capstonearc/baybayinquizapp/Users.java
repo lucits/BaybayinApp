@@ -6,19 +6,23 @@ public class Users {
     private String username;
     private String email;
     private int battleModeScore;
-    private String profile_picture;
+    private String profilePicUrl; // This field is optional
 
+    // No-argument constructor
     public Users() {
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        // Required for calls to DataSnapshot.getValue(User.class)
     }
 
+    // Constructor with parameters
     public Users(String userId, String username, String email, int battleModeScore) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.battleModeScore = battleModeScore;
+        this.profilePicUrl = ""; // Initialize if needed
     }
 
+    // Getter and setter methods
     public String getUserId() {
         return userId;
     }
@@ -46,11 +50,16 @@ public class Users {
     public int getBattleModeScore() {
         return battleModeScore;
     }
-    public String getProfilePicture() {
-        return profile_picture;
-    }
 
     public void setBattleModeScore(int battleModeScore) {
         this.battleModeScore = battleModeScore;
+    }
+
+    public String getProfilePicUrl() {
+        return profilePicUrl;
+    }
+
+    public void setProfilePicUrl(String profilePicUrl) {
+        this.profilePicUrl = profilePicUrl;
     }
 }

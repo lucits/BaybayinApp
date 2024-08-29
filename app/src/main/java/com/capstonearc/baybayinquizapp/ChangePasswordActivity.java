@@ -96,6 +96,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(ChangePasswordActivity.this, "Password updated", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(ChangePasswordActivity.this, Profile.class);
+                                    startActivity(intent);
+                                    finish();
                                 } else {
                                     Toast.makeText(ChangePasswordActivity.this, "Error updating password", Toast.LENGTH_SHORT).show();
                                 }
