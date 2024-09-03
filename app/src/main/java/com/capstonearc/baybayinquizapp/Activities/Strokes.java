@@ -44,7 +44,103 @@ public class Strokes extends AppCompatActivity {
         findViewById(R.id.s1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a_stroke));
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.a));
+            }
+        });
+        findViewById(R.id.s2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ou));
+            }
+        });
+        findViewById(R.id.s3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ei));
+            }
+        });
+        findViewById(R.id.k1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ha));
+            }
+        });
+        findViewById(R.id.k2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.pa));
+            }
+        });
+        findViewById(R.id.k3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ka));
+            }
+        });
+        findViewById(R.id.k4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.sa));
+            }
+        });
+        findViewById(R.id.k5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.la));
+            }
+        });
+        findViewById(R.id.k6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ta));
+            }
+        });
+        findViewById(R.id.k7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.na));
+            }
+        });
+        findViewById(R.id.k8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ba));
+            }
+        });
+        findViewById(R.id.k9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ma));
+            }
+        });
+        findViewById(R.id.k10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ga));
+            }
+        });
+        findViewById(R.id.k11).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dara));
+            }
+        });
+        findViewById(R.id.k12).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ya));
+            }
+        });
+        findViewById(R.id.k13).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.nga));
+            }
+        });
+        findViewById(R.id.k14).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup(v, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.wa));
             }
         });
 

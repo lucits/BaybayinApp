@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="start|center"
-                    android:text="GAYAHIN MO"
+                    android:text="e-Guhit Mo"
                     android:textColor="@color/accent_200"
                     android:textSize="24sp" />
             </LinearLayout>

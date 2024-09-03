@@ -137,8 +137,8 @@ public class ChangeProfile extends AppCompatActivity {
             String userId = user.getUid();
             String newUsername = usernameInput.getText().toString();
 
-            if (newUsername.isEmpty() || newUsername.length() < 6) {
-                usernameInput.setError("Username length should be at least 6 characters");
+            if (newUsername.isEmpty() || newUsername.length() < 3) {
+                usernameInput.setError("Username length should be at least 3 characters");
                 return;
             }
 
