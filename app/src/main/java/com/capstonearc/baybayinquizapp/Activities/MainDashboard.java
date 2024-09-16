@@ -1,9 +1,11 @@
 package com.capstonearc.baybayinquizapp.Activities;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -20,6 +22,7 @@ import com.capstonearc.baybayinquizapp.Adapter.LessonsAdapter;
 import com.capstonearc.baybayinquizapp.Domain.LessonsDomain;
 import com.capstonearc.baybayinquizapp.LeaderboardActivity;
 import com.capstonearc.baybayinquizapp.MainActivity2;
+import com.capstonearc.baybayinquizapp.MainActivity3;
 import com.capstonearc.baybayinquizapp.R;
 import com.capstonearc.baybayinquizapp.StartActivity;
 
@@ -50,8 +53,41 @@ public class MainDashboard extends AppCompatActivity {
         liveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainDashboard.this, MainActivity2.class);
-                startActivity(intent);
+                // Create a dialog and inflate the custom layout
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainDashboard.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.activity_camera, null);
+                builder.setView(dialogView);
+
+                // Find buttons within the dialog layout
+                LinearLayout captureBtn = dialogView.findViewById(R.id.captureBtn);
+                LinearLayout liveDialogBtn = dialogView.findViewById(R.id.liveBtn);
+
+                // Create and show the dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                // Set capture button action
+                captureBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Start activity for capture mode
+                        Intent intent = new Intent(MainDashboard.this, MainActivity3.class);
+                        startActivity(intent);
+                        dialog.dismiss(); // Close the dialog
+                    }
+                });
+
+                // Set live button action
+                liveDialogBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Start activity for live mode
+                        Intent intent = new Intent(MainDashboard.this, MainActivity2.class);
+                        startActivity(intent);
+                        dialog.dismiss(); // Close the dialog
+                    }
+                });
             }
         });
 
