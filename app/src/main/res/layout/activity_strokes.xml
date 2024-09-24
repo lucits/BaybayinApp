@@ -258,6 +258,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ha" />
+                                <ImageView
+                                    android:id="@+id/s4s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -272,6 +280,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/pa" />
+                                <ImageView
+                                    android:id="@+id/s5s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -286,6 +302,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ka"/>
+                                <ImageView
+                                    android:id="@+id/s6s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
@@ -306,6 +330,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/sa" />
+                                <ImageView
+                                    android:id="@+id/s7s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -320,6 +352,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/la" />
+                                <ImageView
+                                    android:id="@+id/s8s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -334,6 +374,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ta"/>
+                                <ImageView
+                                    android:id="@+id/s9s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
@@ -354,6 +402,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/na" />
+                                <ImageView
+                                    android:id="@+id/s10s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -368,6 +424,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ba" />
+                                <ImageView
+                                    android:id="@+id/s11s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -382,6 +446,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ma"/>
+                                <ImageView
+                                    android:id="@+id/s12s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
@@ -402,6 +474,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ga" />
+                                <ImageView
+                                    android:id="@+id/s13s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -416,6 +496,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/dara" />
+                                <ImageView
+                                    android:id="@+id/s14s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -430,6 +518,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/ya"/>
+                                <ImageView
+                                    android:id="@+id/s15s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
@@ -450,6 +546,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/nga" />
+                                <ImageView
+                                    android:id="@+id/s16s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
@@ -464,6 +568,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:src="@drawable/wa" />
+                                <ImageView
+                                    android:id="@+id/s17s"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/speaker"/>
 
                             </androidx.cardview.widget.CardView>
 

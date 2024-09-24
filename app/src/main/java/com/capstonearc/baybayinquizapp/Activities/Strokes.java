@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,10 +19,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.capstonearc.baybayinquizapp.R;
 
+import java.util.Locale;
+
 public class Strokes extends AppCompatActivity {
 
     private Dialog myDialog;
     private MediaPlayer mediaPlayer;
+    private TextToSpeech textToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,14 @@ public class Strokes extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_strokes);
         myDialog = new Dialog(this);
+
+
+        // Initialize TTS
+        textToSpeech = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                textToSpeech.setLanguage(new Locale("fil", "PH")); // Set language to Filipino
+            }
+        });
 
         ConstraintLayout backStrokesBtn = findViewById(R.id.backStrokesBtn);
         backStrokesBtn.setOnClickListener(new View.OnClickListener() {
@@ -148,9 +160,24 @@ public class Strokes extends AppCompatActivity {
 
 
         //sound
-        findViewById(R.id.s1s).setOnClickListener(v -> playSound(R.raw.a_sound));
-        findViewById(R.id.s2s).setOnClickListener(v -> playSound(R.raw.ou_sound));
-        findViewById(R.id.s3s).setOnClickListener(v -> playSound(R.raw.ei_sound));
+        findViewById(R.id.s1s).setOnClickListener(v -> speakText("AH"));
+        findViewById(R.id.s2s).setOnClickListener(v -> speakText("OH-OOH"));
+        findViewById(R.id.s3s).setOnClickListener(v -> speakText("EH-E"));
+        findViewById(R.id.s4s).setOnClickListener(v -> speakText("HA"));
+        findViewById(R.id.s5s).setOnClickListener(v -> speakText("PA"));
+        findViewById(R.id.s6s).setOnClickListener(v -> speakText("KA"));
+        findViewById(R.id.s7s).setOnClickListener(v -> speakText("SA"));
+        findViewById(R.id.s8s).setOnClickListener(v -> speakText("la"));
+        findViewById(R.id.s9s).setOnClickListener(v -> speakText("TA"));
+        findViewById(R.id.s10s).setOnClickListener(v -> speakText("NA"));
+        findViewById(R.id.s11s).setOnClickListener(v -> speakText("BA"));
+        findViewById(R.id.s12s).setOnClickListener(v -> speakText("ma"));
+        findViewById(R.id.s13s).setOnClickListener(v -> speakText("GA"));
+        findViewById(R.id.s14s).setOnClickListener(v -> speakText("DA - RA"));
+        findViewById(R.id.s15s).setOnClickListener(v -> speakText("YA"));
+        findViewById(R.id.s16s).setOnClickListener(v -> speakText("NGA"));
+        findViewById(R.id.s17s).setOnClickListener(v -> speakText("WA"));
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -163,21 +190,21 @@ public class Strokes extends AppCompatActivity {
         VideoDialogFragment dialogFragment = VideoDialogFragment.newInstance(videoUri);
         dialogFragment.show(getSupportFragmentManager(), "VideoDialogFragment");
     }
-    private void playSound(int soundResId) {
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
+
+
+
+    private void speakText(String text) {
+        if (textToSpeech != null) {
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
         }
-        mediaPlayer = MediaPlayer.create(this, soundResId);
-        mediaPlayer.start();
-        mediaPlayer.setOnCompletionListener(MediaPlayer::release);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
         }
     }
 

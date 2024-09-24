@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.speech.tts.TextToSpeech;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.capstonearc.baybayinquizapp.utils.ImageProcess;
 import com.capstonearc.baybayinquizapp.utils.Recognition;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
@@ -45,6 +47,7 @@ public class FullImageAnalyse implements ImageAnalysis.Analyzer {
     private TextView frameSizeTextView;
     ImageProcess imageProcess;
     private TFLiteDetector TFLiteDetector;
+    private TextToSpeech textToSpeech;
 
     public FullImageAnalyse(Context context,
                             PreviewView previewView,
@@ -52,7 +55,7 @@ public class FullImageAnalyse implements ImageAnalysis.Analyzer {
                             int rotation,
                             TextView inferenceTimeTextView,
                             TextView frameSizeTextView,
-                            TFLiteDetector TFLiteDetector) {
+                            TFLiteDetector TFLiteDetector, TextToSpeech textToSpeech) {
         this.previewView = previewView;
         this.boxLabelCanvas = boxLabelCanvas;
         this.rotation = rotation;
@@ -60,6 +63,16 @@ public class FullImageAnalyse implements ImageAnalysis.Analyzer {
         this.frameSizeTextView = frameSizeTextView;
         this.imageProcess = new ImageProcess();
         this.TFLiteDetector = TFLiteDetector;
+
+        // Initialize TTS
+        this.textToSpeech = new TextToSpeech(context, status -> {
+            if (status != TextToSpeech.ERROR) {
+                // Set language to Filipino
+                Locale filipino = new Locale("fil", "PH");
+                this.textToSpeech.setLanguage(filipino);
+            }
+        });
+
     }
 
     @Override
@@ -146,6 +159,7 @@ public class FullImageAnalyse implements ImageAnalysis.Analyzer {
             textPain.setTextSize(50);
             textPain.setColor(Color.WHITE);
             textPain.setStyle(Paint.Style.FILL);
+            StringBuilder ttsText = new StringBuilder();
 
             for (Recognition res : recognitions) {
                 RectF location = res.getLocation();
@@ -155,11 +169,15 @@ public class FullImageAnalyse implements ImageAnalysis.Analyzer {
                 cropCanvas.drawRect(location, boxPaint);
                 cropCanvas.drawText(label + ":" + String.format("%.2f", confidence), location.left, location.top, textPain);
 //                break;
+                // Append the label and confidence to the TTS message
+                ttsText.append(label);
             }
             long end = System.currentTimeMillis();
             long costTime = (end - start);
             image.close();
             emitter.onNext(new Result(costTime, emptyCropSizeBitmap));
+                    // Speak the TTS message
+                    textToSpeech.speak(ttsText.toString(), TextToSpeech.QUEUE_FLUSH, null, null);
 //            emitter.onNext(new Result(costTime, imageBitmap));
 
         }).subscribeOn(Schedulers.io()) // The observer is defined here, which is the thread of the above code. If it is not defined, it is synchronized with the main thread, not asynchronous.

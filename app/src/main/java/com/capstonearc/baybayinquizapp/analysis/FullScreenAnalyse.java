@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.capstonearc.baybayinquizapp.utils.ImageProcess;
 import com.capstonearc.baybayinquizapp.utils.Recognition;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
@@ -47,6 +49,7 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
     private TextView frameSizeTextView;
     ImageProcess imageProcess;
     private TFLiteDetector TFLiteDetector;
+    private TextToSpeech textToSpeech;
 
     public FullScreenAnalyse(Context context,
                              PreviewView previewView,
@@ -54,7 +57,7 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
                              int rotation,
                              TextView inferenceTimeTextView,
                              TextView frameSizeTextView,
-                             TFLiteDetector TFLiteDetector) {
+                             TFLiteDetector TFLiteDetector, TextToSpeech textToSpeech) {
         this.previewView = previewView;
         this.boxLabelCanvas = boxLabelCanvas;
         this.rotation = rotation;
@@ -62,6 +65,16 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
         this.frameSizeTextView = frameSizeTextView;
         this.imageProcess = new ImageProcess();
         this.TFLiteDetector = TFLiteDetector;
+
+        // Initialize TTS
+        this.textToSpeech = new TextToSpeech(context, status -> {
+            if (status != TextToSpeech.ERROR) {
+                // Set language to Filipino
+                Locale filipino = new Locale("fil", "PH");
+                this.textToSpeech.setLanguage(filipino);
+            }
+        });
+
     }
 
     @Override
@@ -141,6 +154,8 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
             textPain.setColor(Color.WHITE);
             textPain.setStyle(Paint.Style.FILL);
 
+            StringBuilder ttsText = new StringBuilder();
+
             for (Recognition res : recognitions) {
                 RectF location = res.getLocation();
                 String label = res.getLabelName();
@@ -149,11 +164,16 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
                 cropCanvas.drawRect(location, boxPaint);
                 cropCanvas.drawText(label + ":" + String.format("%.2f", confidence), location.left, location.top, textPain);
 //                break;
+                // Append the label and confidence to the TTS message
+                ttsText.append(label);
             }
             long end = System.currentTimeMillis();
             long costTime = (end - start);
             image.close();
             emitter.onNext(new Result(costTime, emptyCropSizeBitmap));
+
+                    // Speak the TTS message
+                    textToSpeech.speak(ttsText.toString(), TextToSpeech.QUEUE_FLUSH, null, null);
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe((Result result) -> {
@@ -162,5 +182,12 @@ public class FullScreenAnalyse implements ImageAnalysis.Analyzer {
                     inferenceTimeTextView.setText(Long.toString(result.costTime) + "ms");
                 });
 
+    }
+    // Ensure to release resources
+    public void release() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
     }
 }

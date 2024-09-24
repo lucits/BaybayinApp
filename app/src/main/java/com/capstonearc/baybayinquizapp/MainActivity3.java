@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,6 +28,8 @@ import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.PriorityQueue;
 import java.util.Comparator;
 
@@ -38,6 +41,12 @@ public class MainActivity3 extends AppCompatActivity {
     int imageSize = 224;
     Interpreter tflite;
 
+    // Add a TextToSpeech object
+    private TextToSpeech textToSpeech;
+
+    // Map for Baybayin pronunciation
+    private HashMap<String, String> pronunciationMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +56,19 @@ public class MainActivity3 extends AppCompatActivity {
         confidence = findViewById(R.id.confidence);
         imageView = findViewById(R.id.imageView);
         picture = findViewById(R.id.button);
+
+        // Initialize the TextToSpeech engine
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(new Locale("en", "US")); // Set to Tagalog or default to locale
+                }
+            }
+        });
+
+        // Initialize pronunciation map
+        initializePronunciationMap();
 
         try {
             tflite = new Interpreter(loadModelFile());
@@ -77,6 +99,103 @@ public class MainActivity3 extends AppCompatActivity {
         long declaredLength = fileDescriptor.getDeclaredLength();
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
     }
+
+    // Initialize the Baybayin pronunciation map
+    private void initializePronunciationMap() {
+        pronunciationMap = new HashMap<>();
+
+        // Vowels
+        pronunciationMap.put("A", "ah");
+        pronunciationMap.put("O-U", "oh - ooh");
+        pronunciationMap.put("E-I", "eh - ee");
+
+        // HA Group
+        pronunciationMap.put("HA", "ha");
+        pronunciationMap.put("HE-HI", "he - hi");
+        pronunciationMap.put("HO-HU", "ho - hu");
+
+        // PA Group
+        pronunciationMap.put("PA", "pa");
+        pronunciationMap.put("PE-PI", "pe - pi");
+        pronunciationMap.put("PO-PU", "po - pu");
+
+        // KA Group
+        pronunciationMap.put("KA", "ka");
+        pronunciationMap.put("KE-KI", "ke - ki");
+        pronunciationMap.put("KO-KU", "ko - ku");
+
+        // SA Group
+        pronunciationMap.put("SA", "sa");
+        pronunciationMap.put("SE-SI", "se - si");
+        pronunciationMap.put("SO-SU", "so - su");
+
+        // LA Group
+        pronunciationMap.put("LA", "la");
+        pronunciationMap.put("LE-LI", "le - li");
+        pronunciationMap.put("LO-LU", "lo - lu");
+
+        // TA Group
+        pronunciationMap.put("TA", "ta");
+        pronunciationMap.put("TE-TI", "te - ti");
+        pronunciationMap.put("TO-TU", "to - tu");
+
+        // NA Group
+        pronunciationMap.put("NA", "na");
+        pronunciationMap.put("NE-NI", "ne - ni");
+        pronunciationMap.put("NO-NU", "no - nu");
+
+        // BA Group
+        pronunciationMap.put("BA", "ba");
+        pronunciationMap.put("BE-BI", "be - bi");
+        pronunciationMap.put("BO-BU", "bo - bu");
+
+        // MA Group
+        pronunciationMap.put("MA", "ma");
+        pronunciationMap.put("ME-MI", "me - mi");
+        pronunciationMap.put("MO-MU", "mo - mu");
+
+        // GA Group
+        pronunciationMap.put("GA", "ga");
+        pronunciationMap.put("GE-GI", "ge - gi");
+        pronunciationMap.put("GO-GU", "go - gu");
+
+        // DA-RA Group
+        pronunciationMap.put("DA-RA", "da - ra");
+        pronunciationMap.put("DE-RE DI-RI", "de - re, di - ri");
+        pronunciationMap.put("DO-RO DU-RU", "do - ro, du - ru");
+
+        // YA Group
+        pronunciationMap.put("YA", "ya");
+        pronunciationMap.put("YE-YI", "ye - yi");
+        pronunciationMap.put("YO-YU", "yo - yu");
+
+        // NGA Group
+        pronunciationMap.put("NGA", "nga");
+        pronunciationMap.put("NGE-NGI", "nge - ngi");
+        pronunciationMap.put("NGO-NGU", "ngo - ngu");
+
+        // WA Group
+        pronunciationMap.put("WA", "wa");
+        pronunciationMap.put("WE-WI", "we - wi");
+        pronunciationMap.put("WO-WU", "wo - wu");
+
+        // Standalone Consonants (optional, depending on your use case)
+        pronunciationMap.put("H", "h");
+        pronunciationMap.put("P", "p");
+        pronunciationMap.put("K", "k");
+        pronunciationMap.put("S", "s");
+        pronunciationMap.put("L", "l");
+        pronunciationMap.put("T", "t");
+        pronunciationMap.put("N", "n");
+        pronunciationMap.put("B", "b");
+        pronunciationMap.put("M", "m");
+        pronunciationMap.put("G", "g");
+        pronunciationMap.put("D-R", "d or r");
+        pronunciationMap.put("Y", "y");
+        pronunciationMap.put("NG", "ng");
+        pronunciationMap.put("W", "w");
+    }
+
 
     public void classifyImage(Bitmap image) {
         if (tflite == null) {
@@ -138,23 +257,29 @@ public class MainActivity3 extends AppCompatActivity {
             Log.d("DEBUG", "Classification Result: " + resultText.toString().trim());
             Log.d("DEBUG", "Confidence: " + confidenceText.toString().trim());
 
+            textToSpeech.setSpeechRate(0.7f);  // Slower rate (default is 1.0f)
+            // Text-to-Speech: Get the correct pronunciation using the map
+            String classifiedText = resultText.toString().trim();
+            String pronunciation = pronunciationMap.getOrDefault(classifiedText, classifiedText); // Fallback to the raw text if not found in the map
+            textToSpeech.speak(pronunciation, TextToSpeech.QUEUE_FLUSH, null, null);  // Speak the pronunciation
+
+
+
         } catch (Exception e) {
             Log.e("DEBUG", "Error in classification: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
-
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             Bitmap image = (Bitmap) data.getExtras().get("data");
             int dimension = Math.min(image.getWidth(), image.getHeight());
             image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
             imageView.setImageBitmap(image);
 
-            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-            classifyImage(image);
+            Bitmap resized = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
+            classifyImage(resized);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

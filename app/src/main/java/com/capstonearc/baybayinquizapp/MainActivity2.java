@@ -2,6 +2,7 @@ package com.capstonearc.baybayinquizapp;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Surface;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.capstonearc.baybayinquizapp.analysis.FullScreenAnalyse;
 import com.capstonearc.baybayinquizapp.utils.CameraProcess;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.util.Locale;
+
 public class MainActivity2 extends AppCompatActivity {
 
     private boolean IS_FULL_SCREEN = true;
@@ -38,6 +41,7 @@ public class MainActivity2 extends AppCompatActivity {
     private TFLiteDetector TFLiteDetector;
 
     private CameraProcess cameraProcess = new CameraProcess();
+    private TextToSpeech textToSpeech;  // TTS instance
 
 
     protected int getScreenOrientation() {
@@ -54,7 +58,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void initModel(String modelName) {
-        // 加载模型
+        // Load Model
         try {
             this.TFLiteDetector = new TFLiteDetector();
             this.TFLiteDetector.setModelFile(modelName);
@@ -70,6 +74,21 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        // Initialize TTS
+        textToSpeech = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                // Change language to Filipino
+                Locale filipino = new Locale("fil", "PH");
+                int result = textToSpeech.setLanguage(filipino);
+                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "Filipino language not supported or missing data.");
+                }
+            } else {
+                Log.e("TTS", "Initialization failed.");
+            }
+        });
+
 
         // Hide the top status bar when opening the app
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -117,7 +136,8 @@ public class MainActivity2 extends AppCompatActivity {
                             rotation,
                             inferenceTimeTextView,
                             frameSizeTextView,
-                            TFLiteDetector);
+                            TFLiteDetector,
+                            textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
                 }else{
                     cameraPreviewMatch.removeAllViews();
@@ -128,7 +148,8 @@ public class MainActivity2 extends AppCompatActivity {
                             rotation,
                             inferenceTimeTextView,
                             frameSizeTextView,
-                            TFLiteDetector);
+                            TFLiteDetector,
+                            textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullImageAnalyse, cameraPreviewWrap);
                 }
 
@@ -145,17 +166,6 @@ public class MainActivity2 extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 IS_FULL_SCREEN = b;
                 if (b) {
-                    cameraPreviewWrap.removeAllViews();
-                    FullScreenAnalyse fullScreenAnalyse = new FullScreenAnalyse(MainActivity2.this,
-                            cameraPreviewMatch,
-                            boxLabelCanvas,
-                            rotation,
-                            inferenceTimeTextView,
-                            frameSizeTextView,
-                            TFLiteDetector);
-                    cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
-
-                } else {
                     cameraPreviewMatch.removeAllViews();
                     FullImageAnalyse fullImageAnalyse = new FullImageAnalyse(
                             MainActivity2.this,
@@ -164,12 +174,31 @@ public class MainActivity2 extends AppCompatActivity {
                             rotation,
                             inferenceTimeTextView,
                             frameSizeTextView,
-                            TFLiteDetector);
+                            TFLiteDetector, textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullImageAnalyse, cameraPreviewWrap);
+
+                } else {
+                    cameraPreviewWrap.removeAllViews();
+                    FullScreenAnalyse fullScreenAnalyse = new FullScreenAnalyse(MainActivity2.this,
+                            cameraPreviewMatch,
+                            boxLabelCanvas,
+                            rotation,
+                            inferenceTimeTextView,
+                            frameSizeTextView,
+                            TFLiteDetector, textToSpeech);
+                    cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
                 }
             }
         });
 
 
+    }
+    @Override
+    protected void onDestroy() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+        super.onDestroy();
     }
 }
