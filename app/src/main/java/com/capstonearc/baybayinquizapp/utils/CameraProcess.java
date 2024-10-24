@@ -99,4 +99,33 @@ public class CameraProcess {
         }
     }
 
+
+    public void unbindAll(Context context) {
+        if (cameraProviderFuture != null) {
+            cameraProviderFuture.addListener(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+                        cameraProvider.unbindAll();
+                    } catch (ExecutionException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, ContextCompat.getMainExecutor(context));
+        }
+    }
+    public void stopCamera(Context context) {
+        ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(context);
+
+        cameraProviderFuture.addListener(() -> {
+            try {
+                ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+                cameraProvider.unbindAll();
+            } catch (ExecutionException | InterruptedException e) {
+                Log.e("CameraProcess", "Error stopping camera", e);
+            }
+        }, ContextCompat.getMainExecutor(context));
+    }
+
 }

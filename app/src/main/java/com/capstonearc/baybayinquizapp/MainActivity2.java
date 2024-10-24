@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Surface;
+import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -18,9 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 
-import com.capstonearc.baybayinquizapp.detector.TFLiteDetector;
 import com.capstonearc.baybayinquizapp.analysis.FullImageAnalyse;
 import com.capstonearc.baybayinquizapp.analysis.FullScreenAnalyse;
+import com.capstonearc.baybayinquizapp.detector.TFLiteDetector;
 import com.capstonearc.baybayinquizapp.utils.CameraProcess;
 import com.google.common.util.concurrent.ListenableFuture;
 
@@ -32,17 +35,19 @@ public class MainActivity2 extends AppCompatActivity {
 
     private PreviewView cameraPreviewMatch;
     private PreviewView cameraPreviewWrap;
-    private ImageView boxLabelCanvas;
+    private TextureView boxLabelCanvas;
     private Spinner modelSpinner;
     private Switch immersive;
     private TextView inferenceTimeTextView;
     private TextView frameSizeTextView;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private TFLiteDetector TFLiteDetector;
+    private FullImageAnalyse fullImageAnalyse;
+    private FullScreenAnalyse fullScreenAnalyse;
 
     private CameraProcess cameraProcess = new CameraProcess();
     private TextToSpeech textToSpeech;  // TTS instance
-
+    private Button freezeButton;
 
     protected int getScreenOrientation() {
         switch (getWindowManager().getDefaultDisplay().getRotation()) {
@@ -89,7 +94,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-
         // Hide the top status bar when opening the app
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -128,9 +132,9 @@ public class MainActivity2 extends AppCompatActivity {
                 String model = (String) adapterView.getItemAtPosition(i);
                 Toast.makeText(MainActivity2.this, "loading model: " + model, Toast.LENGTH_LONG).show();
                 initModel(model);
-                if(IS_FULL_SCREEN){
+                if (IS_FULL_SCREEN) {
                     cameraPreviewWrap.removeAllViews();
-                    FullScreenAnalyse fullScreenAnalyse = new FullScreenAnalyse(MainActivity2.this,
+                    fullScreenAnalyse = new FullScreenAnalyse (MainActivity2.this,
                             cameraPreviewMatch,
                             boxLabelCanvas,
                             rotation,
@@ -139,9 +143,9 @@ public class MainActivity2 extends AppCompatActivity {
                             TFLiteDetector,
                             textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
-                }else{
+                } else {
                     cameraPreviewMatch.removeAllViews();
-                    FullImageAnalyse fullImageAnalyse = new FullImageAnalyse(
+                    fullImageAnalyse = new FullImageAnalyse(
                             MainActivity2.this,
                             cameraPreviewWrap,
                             boxLabelCanvas,
@@ -152,9 +156,8 @@ public class MainActivity2 extends AppCompatActivity {
                             textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullImageAnalyse, cameraPreviewWrap);
                 }
-
-
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -167,32 +170,45 @@ public class MainActivity2 extends AppCompatActivity {
                 IS_FULL_SCREEN = b;
                 if (b) {
                     cameraPreviewMatch.removeAllViews();
-                    FullImageAnalyse fullImageAnalyse = new FullImageAnalyse(
+                    fullScreenAnalyse = new FullScreenAnalyse(MainActivity2.this,
+                            cameraPreviewMatch,
+                            boxLabelCanvas,
+                            rotation,
+                            inferenceTimeTextView,
+                            frameSizeTextView,
+                            TFLiteDetector,
+                            textToSpeech);
+                    cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
+                } else {
+                    cameraPreviewWrap.removeAllViews();
+                    fullImageAnalyse = new FullImageAnalyse(
                             MainActivity2.this,
                             cameraPreviewWrap,
                             boxLabelCanvas,
                             rotation,
                             inferenceTimeTextView,
                             frameSizeTextView,
-                            TFLiteDetector, textToSpeech);
+                            TFLiteDetector,
+                            textToSpeech);
                     cameraProcess.startCamera(MainActivity2.this, fullImageAnalyse, cameraPreviewWrap);
-
-                } else {
-                    cameraPreviewWrap.removeAllViews();
-                    FullScreenAnalyse fullScreenAnalyse = new FullScreenAnalyse(MainActivity2.this,
-                            cameraPreviewMatch,
-                            boxLabelCanvas,
-                            rotation,
-                            inferenceTimeTextView,
-                            frameSizeTextView,
-                            TFLiteDetector, textToSpeech);
-                    cameraProcess.startCamera(MainActivity2.this, fullScreenAnalyse, cameraPreviewMatch);
                 }
             }
         });
 
+        freezeButton = findViewById(R.id.freeze_button);
 
+        freezeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (IS_FULL_SCREEN) {
+                    fullScreenAnalyse.freeze();
+                } else {
+                    fullImageAnalyse.freeze();
+                }
+            }
+        });
     }
+
     @Override
     protected void onDestroy() {
         if (textToSpeech != null) {
